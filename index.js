@@ -12,7 +12,13 @@ client.once(Events.ClientReady, c => {
 
     const hello = new SlashCommandBuilder()
         .setName('hello')
-        .setDescription('打个招呼吧');
+        .setDescription('打个招呼吧')
+        .addUserOption(option =>
+            option
+                .setName('user')
+                .setDescription('The user to say hi to')
+                .setRequired(false)    
+        )
 
     client.application.commands.create(ping, "980887444431978517")
     client.application.commands.create(hello, "980887444431978517")
@@ -24,7 +30,8 @@ client.on(Events.InteractionCreate, interaction => {
         interaction.reply("我是山里灵活的狗");
     }
     if(interaction.commandName === "hello") {
-        interaction.reply(`Hello ${interaction.user.username}!`);
+        const user = interaction.options.getUser('user') || interaction.user;
+        interaction.reply(`Hello ${user.username}!`);
     }
     console.log(interaction);
 });
