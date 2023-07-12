@@ -1,8 +1,8 @@
-const fs = require('node:fs');
-const path = require('node:path');
-const { REST } = require('@discordjs/rest');
-const { Routes } = require('discord.js');
-const { clientID, guildID, token } = require('./config.json');
+const fs = require("node:fs");
+const path = require("node:path");
+const { REST } = require("@discordjs/rest");
+const { Routes } = require("discord.js");
+const { clientID, guildID, token } = require("./config.json");
 
 function getFiles(dir) {
     const files = fs.readdirSync(dir, {
@@ -24,7 +24,7 @@ function getFiles(dir) {
 }
 
 let commands = [];
-const commandFiles = getFiles('./commands')
+const commandFiles = getFiles('./commands');
 
 for(const file of commandFiles) {
     const command = require(file);
