@@ -2,7 +2,7 @@ const fs = require("node:fs");
 const path = require("node:path");
 const { REST } = require("@discordjs/rest");
 const { Routes } = require("discord.js");
-const { clientID, guildID, token } = require("./config.json");
+const { clientId, guildId, token } = require("./config.json");
 
 function getFiles(dir) {
     const files = fs.readdirSync(dir, {
@@ -33,6 +33,6 @@ for(const file of commandFiles) {
 
 const rest = new REST({ version: '10' }).setToken(token);
 
-rest.put(Routes.applicationGuildCommands(clientID, guildID), { body: commands})
+rest.put(Routes.applicationGuildCommands(clientId, guildId), { body: commands})
     .then(() => console.log('Successfully registered application commands!'))
     .catch(() => console.error);
