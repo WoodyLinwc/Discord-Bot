@@ -13,7 +13,7 @@ client.once(Events.ClientReady, c => {
 client.on(Events.InteractionCreate, interaction => {
     if(!interaction.isChatInputCommand()) return;
 
-    let command = client.commands.get(interaction.commandNames);
+    let command = client.commands.get(interaction.commandName);
 
     try {
         if(interaction.replied) return;
