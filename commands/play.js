@@ -68,6 +68,9 @@ module.exports = {
             "动物派对",
             "如龙",
             "方舟",
+            "永劫无间",
+            "Valorant",
+            "Apex",
             "Steam",
             "Epic",
         ];
